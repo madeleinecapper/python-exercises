@@ -219,9 +219,13 @@ keys title, author, and genre. Loop through the list and print out
 information about each book.'''
 
 library = [{'title': 'Moby Dick', 'author': 'Dwayne Johnson', 'genre': 'whalecore'}, 
-{'title': 'JimJams', 'author': 'Jims Guide to Jams', 'genre': 'self-help'},
+{'title': 'Jims Guide to Jams', 'author': 'JimJams', 'genre': 'self-help'},
  {'title': 'Atlas Shrugged', 'author': 'Actually the Devil', 'genre': 'fiction'},
-  {'title': 'The Road', 'author': 'Hardcastle Mcormick', 'genre': 'sadness'}]
+  {'title': 'The Road', 'author': 'Hardcastle Mcormick', 'genre': 'sadness'},
+  {'title': 'A Place to Go', 'author': 'Diego von Traphouse', 'genre': 'self-help'}, 
+  {'title': 'Five Tings', 'author': 'Fakey McPatois', 'genre': 'fiction'},
+  {'title': 'Handfuls of Fiddlefaddle', 'author': 'Jim Jackal', 'genre': 'Historical Fiction'}, 
+  {'title': 'Old Fashioned Jollops', 'author': 'Henry of Henrys Old Fashioned Jollops', 'genre': 'whalecore'}]
 for feature in library:
     print('Title: ' + feature['title'])
     print('Author: ' + feature['author'])
