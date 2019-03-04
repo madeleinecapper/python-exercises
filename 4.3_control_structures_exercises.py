@@ -41,9 +41,10 @@ Each loop iteration, output the current value of i, then increment i by one.'''
 print('this is the first subexercise 2a and it is a very simple loop here it is thanks')
 i = 5
 while i <= 15:
-    print(i)
+    print(i, end = ' ')
     i +=1
 
+print(' ')
 '''Create a while loop that will count by 2's 
 starting with 0 and ending at 100. 
 Follow each number with a new line.'''
@@ -62,9 +63,9 @@ while i >= -10:
 
 new_i = 2
 while new_i < 1000000:
-    print(new_i)
+    print(new_i, end = ' ')
     new_i = new_i**2
-
+print(' ')
 i = 100
 while i >= 5:
     print(i)
@@ -169,7 +170,7 @@ print('Here is your table!')
 print('number | squared | cubed')
 print('------ | ------- | -----')
 for i in range(1,cust_num+1):
-    print(f'{i}      |{i**2}      | {i**3}     ')
+    print("{0:7}".format(f'{i}')+ '|' + "{0:9}".format(f'{i**2}')+ '|' + f'{i**3}')
 feedback = input('Would you like to do this with a different number y/n: ')
 while feedback == 'y':
     cust_num = int(input('What number would you like to go up to? :'))
@@ -177,7 +178,7 @@ while feedback == 'y':
     print('number | squared | cubed')
     print('------ | ------- | -----')
     for i in range(1,cust_num+1):
-        print(f'{i}      |{i**2}      | {i**3}     ')
+        print("{0:7}".format(f'{i}')+ '|' + "{0:9}".format(f'{i**2}')+ '|' + f'{i**3}')
     feedback = input('Would you like to do this with a different number y/n: ')
 
 '''#5: Convert a given number grade into a letter grade
