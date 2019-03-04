@@ -13,3 +13,15 @@ else:
     while count <= some_number:
         print(count)
         count += 1
+'''#2 Write a program that prompts the user for a positive integer.
+ Next write a loop that prints out the numbers from the number 
+ the user entered down to 1.'''
+ 
+some_number = int(input('hey guy please to enter some positive int thanks: '))
+count = some_number
+if some_number <= 0:
+    print('please follow instructions next time man why')
+else:
+    while count >= 1:
+        print(count)
+        count -= 1
