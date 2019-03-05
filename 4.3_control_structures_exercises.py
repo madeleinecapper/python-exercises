@@ -220,7 +220,7 @@ information about each book.'''
 
 library = [{'title': 'Moby Dick', 'author': 'Dwayne Johnson', 'genre': 'whalecore'}, 
 {'title': 'Jims Guide to Jams', 'author': 'JimJams', 'genre': 'self-help'},
- {'title': 'Atlas Shrugged', 'author': 'Actually the Devil', 'genre': 'fiction'},
+ {'title': 'Atlas Shrugged', 'author': 'Objectivism Isntreal', 'genre': 'fiction'},
   {'title': 'The Road', 'author': 'Hardcastle Mcormick', 'genre': 'sadness'},
   {'title': 'A Place to Go', 'author': 'Diego von Traphouse', 'genre': 'self-help'}, 
   {'title': 'Five Tings', 'author': 'Fakey McPatois', 'genre': 'fiction'},
