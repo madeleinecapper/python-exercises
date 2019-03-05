@@ -112,33 +112,64 @@
 # print(get_letter_grade(99))
 # print(get_letter_grade(33))
 
-'''#9: Define a function named remove_vowels that 
-accepts a string and returns a string with all the vowels removed.'''
+# '''#9: Define a function named remove_vowels that 
+# accepts a string and returns a string with all the vowels removed.'''
 
-def remove_vowels(some_string):
-    consonant_string = ""
-    string_array = []
-    for letter in some_string:
-        if letter in('a','e','i','o','u'):
-            continue
-        else:
-            consonant_string += letter
-    return consonant_string
+# def remove_vowels(some_string):
+#     consonant_string = ""
+#     string_array = []
+#     for letter in some_string:
+#         if letter in('a','e','i','o','u'):
+#             continue
+#         else:
+#             consonant_string += letter
+#     return consonant_string
 
-print(remove_vowels('aaaaaaaaaaabaaaaaaruuiiiiibsooo'))
+# print(remove_vowels('aaaaaaaaaaabaaaaaaruuiiiiibsooo'))
 
-'''#10: Define a function named normalize_name. 
-It should accept a string and return a valid python identifier,
- that is:
-anything that is not a valid python identifier should be removed
-leading and trailing whitespace should be removed
-everything should be lowercase
-spaces should be replaced with underscores
-for example:
-Name will become name
-First Name will become first_name
-% Completed will become completed'''
+# '''#10: Define a function named normalize_name. 
+# It should accept a string and return a valid python identifier,
+#  that is:
+# anything that is not a valid python identifier should be removed
+# leading and trailing whitespace should be removed
+# everything should be lowercase
+# spaces should be replaced with underscores
+# for example:
+# Name will become name
+# First Name will become first_name
+# % Completed will become completed'''
 
-'''#11: Write a function named cumsum that accepts a list of numbers and returns a list that is the cumulative sum of the numbers in the list.
+# def normalize_name(name):
+#     normal_name = ''
+#     primed_name = name.strip()
+#     primed_name = name.lower()
+#     for letter in primed_name:
+#         if letter == ' ':
+#             normal_name += '_'
+#         elif not letter.isalpha() and not letter.isdigit():
+#             continue
+#         else:
+#             normal_name += letter
+#     return normal_name
+
+# print(normalize_name('Becky From \%Da\% Block 1998'))
+
+'''#11: Write a function named cumsum that accepts 
+a list of numbers and returns a list that is 
+the cumulative sum of the numbers in the list.
 cumsum([1, 1, 1]) returns [1, 2, 3]
 cumsum([1, 2, 3, 4]) returns [1, 3, 6, 10]'''
+
+def cumsum(some_list):
+    new_list = []
+    for i in range(0,len(some_list)):
+        if i == 0:
+            new_list.append(some_list[i])
+        else:
+            new_list.append(some_list[i] + new_list[i-1])
+    return new_list
+
+a_list = [1, 2, 3, 4]
+
+print(cumsum([1,1,1]))
+print(cumsum(a_list))
