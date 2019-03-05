@@ -3,14 +3,14 @@ print out whether the day is Monday or not'''
 
 day_of_week = input('What day of the week is it today? ')
 if day_of_week.lower() == 'monday':
-     print('LASAGNA')
+    print('LASAGNA')
 
 '''#1b: prompt the user for a day of the week,
  print out whether the day is a weekday or a weekend'''
 
 day_of_week = input('What day of the week is it today? ')
 if day_of_week.lower() in('monday', 'tuesday', 'wednesday', 'thursday', 'friday'):
-     print('WERK DAY')
+    print('WERK DAY')
 elif day_of_week.lower() in('saturday', 'sunday'):
     print('WEEKEND FUN TIMES WOW')
 else:
@@ -29,11 +29,13 @@ garbage_rate = float(input("What do you make per hour: $"))
 paycheck = 0
 if weekly_hours_worked <= 40.0:
     paycheck = weekly_hours_worked*garbage_rate
-    print(f'Wow friendguy you made {"{0:.2f}".format(round(paycheck,2))} dollars')
+    print(
+        f'Wow friendguy you made {"{0:.2f}".format(round(paycheck,2))} dollars')
 else:
     paycheck = 40.0 * garbage_rate
     paycheck += (weekly_hours_worked - 40.00)*garbage_rate*1.5
-    print(f'OVERTIME CITY BRUH YOU MADE {"{0:.2f}".format(round(paycheck,2))} DOLLHAIRS')
+    print(
+        f'OVERTIME CITY BRUH YOU MADE {"{0:.2f}".format(round(paycheck,2))} DOLLHAIRS')
 
 '''#2a: Create an integer variable i with a value of 5.
 Create a while loop that runs so long as i is less than or equal to 15
@@ -41,8 +43,8 @@ Each loop iteration, output the current value of i, then increment i by one.'''
 print('this is the first subexercise 2a and it is a very simple loop here it is thanks')
 i = 5
 while i <= 15:
-    print(i, end = ' ')
-    i +=1
+    print(i, end=' ')
+    i += 1
 
 print(' ')
 '''Create a while loop that will count by 2's 
@@ -53,7 +55,7 @@ print('count by 2s starting with 0 ending at 100')
 i = 0
 while i <= 100:
     print(i)
-    i +=2
+    i += 2
 
 print('backwards by 5s from 100 to -10')
 i -= 2
@@ -63,7 +65,7 @@ while i >= -10:
 
 new_i = 2
 while new_i < 1000000:
-    print(new_i, end = ' ')
+    print(new_i, end=' ')
     new_i = new_i**2
 print(' ')
 i = 100
@@ -78,11 +80,11 @@ ux_num = input('Hey guy enter a number, make it an integer pls: ')
 while not ux_num.isdigit():
     ux_num = input('integer please: ')
 ux_num = int(ux_num)
-for i in range(1,11):
+for i in range(1, 11):
     print(f'{ux_num} X {i} = {ux_num*i}')
 
 numstring = ''
-for i in range(1,10):
+for i in range(1, 10):
     numstring = str(i)*i
     print(numstring)
 
@@ -99,11 +101,11 @@ while not ux_odd.isdigit():
     ux_odd = input('Please enter a positive odd number less than 50: ')
 while (int(ux_odd) > 50) or (int(ux_odd) % 2 == 0):
     ux_odd = input('Please enter a positive ODD number LESS than 50: ')
-for i in range(1,51):
+for i in range(1, 51):
     if int(ux_odd) == i:
-         print("SKIPPING")
-         continue
-    elif i%2 == 0:
+        print("SKIPPING")
+        continue
+    elif i % 2 == 0:
         continue
     else:
         print(f'Here is an odd number: {i}')
@@ -128,7 +130,7 @@ for n in range(1, int(some_number)+1):
 '''#2e: Write a program that prompts the user for a positive integer.
  Next write a loop that prints out the numbers from the number 
  the user entered down to 1.'''
- 
+
 some_number = input('hey guy please to enter some positive int thanks: ')
 while not some_number.isdigit():
     some_number = input('I SAID NUMBER PLEASE: ')
@@ -148,11 +150,11 @@ For multiples of three print "Fizz" instead of the number
 For the multiples of five print "Buzz".
 For numbers which are multiples of both three and five print "FizzBuzz".'''
 
-for i in range(1,101):
-    if i%3 == 0 or i%5 == 0:
-        if i%3 == 0 and i%5 == 0:
+for i in range(1, 101):
+    if i % 3 == 0 or i % 5 == 0:
+        if i % 3 == 0 and i % 5 == 0:
             print('FizzBuzz')
-        elif i%3 == 0:
+        elif i % 3 == 0:
             print('Fizz')
         else:
             print('Buzz')
@@ -169,16 +171,18 @@ cust_num = int(input('What number would you like to go up to? :'))
 print('Here is your table!')
 print('number | squared | cubed')
 print('------ | ------- | -----')
-for i in range(1,cust_num+1):
-    print("{0:7}".format(f'{i}')+ '|' + "{0:9}".format(f'{i**2}')+ '|' + f'{i**3}')
+for i in range(1, cust_num+1):
+    print("{0:7}".format(f'{i}') + '|' +
+          "{0:9}".format(f'{i**2}') + '|' + f'{i**3}')
 feedback = input('Would you like to do this with a different number y/n: ')
 while feedback == 'y':
     cust_num = int(input('What number would you like to go up to? :'))
     print('Here is your table!')
     print('number | squared | cubed')
     print('------ | ------- | -----')
-    for i in range(1,cust_num+1):
-        print("{0:7}".format(f'{i}')+ '|' + "{0:9}".format(f'{i**2}')+ '|' + f'{i**3}')
+    for i in range(1, cust_num+1):
+        print("{0:7}".format(f'{i}') + '|' +
+              "{0:9}".format(f'{i**2}') + '|' + f'{i**3}')
     feedback = input('Would you like to do this with a different number y/n: ')
 
 '''#5: Convert a given number grade into a letter grade
@@ -218,14 +222,17 @@ a book that you have read. Each dictionary in the list should have the
 keys title, author, and genre. Loop through the list and print out 
 information about each book.'''
 
-library = [{'title': 'Moby Dick', 'author': 'Dwayne Johnson', 'genre': 'whalecore'}, 
-{'title': 'Jims Guide to Jams', 'author': 'JimJams', 'genre': 'self-help'},
- {'title': 'Atlas Shrugged', 'author': 'Objectivism Isntreal', 'genre': 'fiction'},
-  {'title': 'The Road', 'author': 'Hardcastle Mcormick', 'genre': 'sadness'},
-  {'title': 'A Place to Go', 'author': 'Diego von Traphouse', 'genre': 'self-help'}, 
-  {'title': 'Five Tings', 'author': 'Fakey McPatois', 'genre': 'fiction'},
-  {'title': 'Handfuls of Fiddlefaddle', 'author': 'Jim Jackal', 'genre': 'Historical Fiction'}, 
-  {'title': 'Old Fashioned Jollops', 'author': 'Henry of Henrys Old Fashioned Jollops', 'genre': 'whalecore'}]
+library = [{'title': 'Moby Dick', 'author': 'Dwayne Johnson', 'genre': 'whalecore'},
+           {'title': 'Jims Guide to Jams', 'author': 'JimJams', 'genre': 'self-help'},
+           {'title': 'Atlas Shrugged',
+               'author': 'Objectivism Isntreal', 'genre': 'fiction'},
+           {'title': 'The Road', 'author': 'Hardcastle Mcormick', 'genre': 'sadness'},
+           {'title': 'A Place to Go',
+               'author': 'Diego von Traphouse', 'genre': 'self-help'},
+           {'title': 'Five Tings', 'author': 'Fakey McPatois', 'genre': 'fiction'},
+           {'title': 'Handfuls of Fiddlefaddle',
+            'author': 'Jim Jackal', 'genre': 'Historical Fiction'},
+           {'title': 'Old Fashioned Jollops', 'author': 'Henry of Henrys Old Fashioned Jollops', 'genre': 'whalecore'}]
 for feature in library:
     print('Title: ' + feature['title'])
     print('Author: ' + feature['author'])
@@ -244,4 +251,3 @@ for feature in library:
         print('Title: ' + feature['title'])
         print('Author: ' + feature['author'])
         print('Genre: ' + feature['genre'])
-    
