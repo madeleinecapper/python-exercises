@@ -197,7 +197,7 @@ def twelveto24(time_string):
             else:
                 pm_hour += digit
         mil_hour = int(pm_hour) + 12
-        mil_time += str(mil_hour) + time_string[-4:-2]
+        mil_time += str(mil_hour) + ':' + time_string[-4:-2]
         return mil_time
 
 print(twelveto24('10:45am'))
