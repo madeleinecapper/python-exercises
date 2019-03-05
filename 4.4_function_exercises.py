@@ -154,22 +154,51 @@
 
 # print(normalize_name('Becky From \%Da\% Block 1998'))
 
-'''#11: Write a function named cumsum that accepts 
-a list of numbers and returns a list that is 
-the cumulative sum of the numbers in the list.
-cumsum([1, 1, 1]) returns [1, 2, 3]
-cumsum([1, 2, 3, 4]) returns [1, 3, 6, 10]'''
+# '''#11: Write a function named cumsum that accepts 
+# a list of numbers and returns a list that is 
+# the cumulative sum of the numbers in the list.
+# cumsum([1, 1, 1]) returns [1, 2, 3]
+# cumsum([1, 2, 3, 4]) returns [1, 3, 6, 10]'''
 
-def cumsum(some_list):
-    new_list = []
-    for i in range(0,len(some_list)):
-        if i == 0:
-            new_list.append(some_list[i])
-        else:
-            new_list.append(some_list[i] + new_list[i-1])
-    return new_list
+# def cumsum(some_list):
+#     new_list = []
+#     for i in range(0,len(some_list)):
+#         if i == 0:
+#             new_list.append(some_list[i])
+#         else:
+#             new_list.append(some_list[i] + new_list[i-1])
+#     return new_list
 
-a_list = [1, 2, 3, 4]
+# a_list = [1, 2, 3, 4]
 
-print(cumsum([1,1,1]))
-print(cumsum(a_list))
+# print(cumsum([1,1,1]))
+# print(cumsum(a_list))
+
+'''Bonus 1:
+Create a function named twelveto24. 
+It should accept a string in the format 10:45am or 4:30pm 
+and return a string that is the representation of the time in a 24-hour format. 
+Bonus write a function that does the opposite'''
+
+def twelveto24(time_string):
+    mil_time = ''
+    pm_hour = ''
+    if time_string[-2] in('a','A'):
+        for digit in time_string:
+            if digit in['a','m','A','M']:
+                continue
+            else:
+                mil_time += digit
+        return mil_time
+    elif time_string[-2] in('p','P'):
+        for digit in time_string:
+            if digit == ':':
+                break
+            else:
+                pm_hour += digit
+        mil_hour = int(pm_hour) + 12
+        mil_time += str(mil_hour) + time_string[-4:-2]
+        return mil_time
+
+print(twelveto24('10:45am'))
+print(twelveto24('1:30pm'))
