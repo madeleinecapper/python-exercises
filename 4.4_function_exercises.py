@@ -5,7 +5,7 @@
 
 
 def is_two(arg):
-    if int(arg) == 2:
+    if arg == '2' or arg == 2:
         return True
     else:
         return False
@@ -22,6 +22,7 @@ print(is_two('2'))
 
 def is_vowel(letter):
     if letter in('a', 'e', 'i', 'o', 'u'):
+    # worked example alternative: if letter in 'aeiou'
         return True
     else:
         return False
@@ -40,7 +41,7 @@ def is_consonant(thing):
     if thing.isdigit():
         return False
     elif not is_vowel(thing):
-        if len(thing) == 1:
+        if len(thing) == 1 and thing.isalpha():
             return True
         else:
             return False
@@ -59,7 +60,7 @@ print(is_consonant('6'))
 
 def cap_cons(argument):
     if is_consonant(argument[0]):
-        newstring = argument[0].upper() + argument[1:len(argument)+1]
+        newstring = argument[0].upper() + argument[1:]
         return newstring
     else:
         return argument
@@ -101,8 +102,9 @@ print(apply_discount(100, 0.2))
 def handle_commas(arg):
     commaless = arg.replace(',', '')
     if commaless.isdigit():
-        return commaless
-
+        return int(commaless)
+    else:
+        return 'THIS FUNCTION IS FOR NUMBERS {} NUMBERS ONLY PLEASE'.format(commaless)
 
 print(handle_commas('g,g,g,,,ggggg'))
 print(handle_commas('1,,3,,3,3,,000,,0,,,000,0'))
@@ -133,8 +135,9 @@ print(get_letter_grade(33))
 
 
 def remove_vowels(some_string):
+    # Worked Example more elegant version:
+    # return ''.join([letter for letter in some_string if not is_vowel(letter)])
     consonant_string = ""
-    string_array = []
     for letter in some_string:
         if letter in('a', 'e', 'i', 'o', 'u'):
             continue
@@ -264,15 +267,70 @@ def letter_val(letter):
 
 def col_index(col_name):
     trick = 26 * (len(col_name) - 1)
-    running_total = trick
+    running_total = 0
     for letter in col_name:
         running_total += letter_val(letter)
     running_total -= (len(col_name) - 1)
+    running_total += trick
     return running_total
 
 
 print(col_index('A'))
 print(col_index('Z'))
 print(col_index('AA'))
-print(col_index('AC'))
+print(col_index('BA'))
+print(col_index('AB'))
+print(col_index('BB'))
 print(col_index('AAA'))
+
+# '''1. Write a function named `add`. It should accept two arguments
+# and return the result of adding the two arguments together.'''
+
+
+def add(prompt1, prompt2):
+    user_input1 = input(prompt1)
+    if not user_input1.isdigit():
+        print('Error: {} is not an integer'.format(user_input1))
+        return add(prompt1, prompt2)
+    user_input2 = input(prompt2)
+    if not user_input2.isdigit():
+        print('Error: {} is not an integer'.format(user_input2))
+        return add(prompt1, prompt2)
+    return int(user_input1) + int(user_input2)
+
+
+print('hi this is the start of your thing lets see if it works')
+print('here goes')
+p1 = 'enter your first integer: '
+p2 = 'enter your second integer: '
+sum = add(p1, p2)
+print(' hey you gave us two numbers and the sum is {}'.format(sum))
+
+# '''2. Write a function named `subtract`.
+# It should accept two arugments and return
+# the result of subtracting the first from the second.'''
+
+
+def subtract(prompt1, prompt2):
+    user_input1 = input(prompt1)
+    if not user_input1.isdigit():
+        print('Error: {} is not an integer'.format(user_input1))
+        return add(prompt1, prompt2)
+    user_input2 = input(prompt2)
+    if not user_input2.isdigit():
+        print('Error: {} is not an integer'.format(user_input2))
+        return add(prompt1, prompt2)
+    return int(user_input2) - int(user_input1)
+
+
+print('hi this is the start of your second thing lets see if it works')
+print('here goes')
+p1 = 'enter your first integer: '
+p2 = 'enter your second integer: '
+diffrence = subtract(p1, p2)
+print(' hey you gave us two numbers and the difference is {}'.format(diffrence))
+
+# '''3. Write a function named `multiply`. It should accept two numbers and return the result of multiplying them together.'''
+
+# '''Bonus: don't use the `*` operator in your `multiply` function'''
+# '''Bonus Bonus: don't use a loop in your `multiply` function'''
