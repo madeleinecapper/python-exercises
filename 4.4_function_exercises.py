@@ -160,29 +160,25 @@ print(remove_vowels('aaaaaaaaaaabaaaaaaruuiiiiibsooo'))
 # First Name will become first_name
 # % Completed will become completed'''
 
-
+LETTERS = ' abcdefghijklmnopqrstuvwxyz1234567890_'
 def normalize_name(name):
     normal_name = ''
-    primed_name = name.strip()
-    primed_name = name.lower()
+    primed_name = name.strip().lower()
     for letter in primed_name:
-        if letter == ' ':
-            normal_name += '_'
-        elif not letter.isalpha() and not letter.isdigit():
+        if letter not in LETTERS:
             continue
         else:
             normal_name += letter
-    return normal_name
+    return normal_name.strip().replace(' ', '_')
 
 
-print(normalize_name('Becky From \%Da\% Block 1998'))
+print(normalize_name('Becky From \%Da\% Block 1998 !!! '))
 
 # '''#11: Write a function named cumsum that accepts
 # a list of numbers and returns a list that is
 # the cumulative sum of the numbers in the list.
 # cumsum([1, 1, 1]) returns [1, 2, 3]
 # cumsum([1, 2, 3, 4]) returns [1, 3, 6, 10]'''
-
 
 def cumsum(some_list):
     new_list = []
@@ -266,20 +262,25 @@ def letter_val(letter):
 
 
 def col_index(col_name):
-    trick = 26 * (len(col_name) - 1)
-    running_total = 0
+    trick = 0
+    if len(col_name) > 1:
+        for letter in range(0, len(col_name)-1):
+            trick += 26 * letter_val(col_name[letter]) - (letter_val(col_name[letter]) - 1)
+    running_total = trick
     for letter in col_name:
         running_total += letter_val(letter)
     running_total -= (len(col_name) - 1)
-    running_total += trick
     return running_total
 
 
 print(col_index('A'))
 print(col_index('Z'))
 print(col_index('AA'))
+# 27 
 print(col_index('BA'))
-print(col_index('AB'))
+# 53
+print(col_index('CA'))
+# 79
 print(col_index('BB'))
 print(col_index('AAA'))
 
