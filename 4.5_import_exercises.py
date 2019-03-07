@@ -1,6 +1,7 @@
 import json
 from itertools import product as pro
 from itertools import combinations as combo
+from itertools import groupby
 import functions_exercises
 from functions_exercises import is_two
 from functions_exercises import is_vowel as vowl
@@ -16,7 +17,7 @@ print(is_two(2))
 
 print(vowl('r'))
 
-# itertools exercises 
+# itertools exercises
 # combine abc with 123 in pairs
 
 toup1 = ('a', 'b', 'c')
@@ -31,7 +32,7 @@ print('If we combine {} and {}, we get {} combinations'.format(toup1, toup2, amo
 print('It looks like this: ')
 print('{}'.format(comb_string))
 
-#combine abcd in pairs
+# combine abcd in pairs
 
 comb_list2 = list(combo('abcd', 2))
 comb_string2 = ''
@@ -44,7 +45,7 @@ print('If we combine a,b,c,d in pairs, we get {} combinations'.format(amount2))
 print('It looks like this: ')
 print('{}'.format(comb_string2))
 
-# heres a whole bunch of initializations 
+# heres a whole bunch of initializations
 
 full_load = json.load(open('profiles.json'))
 count_total = 0
@@ -59,6 +60,7 @@ total_unread = 0
 apple_count = 0
 banana_count = 0
 strawberry_count = 0
+fruit_dict = {}
 
 # Print full list of files on handm count total number of users:
 
@@ -96,7 +98,7 @@ print('Number of inactive users: {}'.format(count_inactive))
 # Grand total of balances
 # also unread emails from greeting message
 # also favorite fruit list builder
-#also balance list builder
+# also balance list builder
 
 for dict in full_load:
     for key in dict:
@@ -127,16 +129,21 @@ print('Average balance: ${0:.6}'.format(average_bal))
 print('Maximum balance: ${}'.format(max_balance))
 print('Minimum balance: ${}'.format(min_balance))
 
-for fruit in fruit_list:
-    if fruit == 'apple':
-        apple_count += 1
-    elif fruit == 'strawberry':
-        strawberry_count += 1
-    elif fruit == 'banana':
-        banana_count += 1
+# actual functional way of finding favorite fruits
+for key, group in groupby(sorted(fruit_list)):
+    fruit_dict[key] = len(list(group))
 
-fruit_dict = {'apple': apple_count,
-              'banana': banana_count, 'strawberry': strawberry_count}
+# dumb forced way if you know all the categories and there arent a lot of them
+# for fruit in fruit_list:
+#     if fruit == 'apple':
+#         apple_count += 1
+#     elif fruit == 'strawberry':
+#         strawberry_count += 1
+#     elif fruit == 'banana':
+#         banana_count += 1
+
+# fruit_dict = {'apple': apple_count,
+#               'banana': banana_count, 'strawberry': strawberry_count}
 
 print('The most popular favorite fruit is {}'.format(max(fruit_dict)))
 print('The number of people with {} as their favorite fruit is {}'.format(
