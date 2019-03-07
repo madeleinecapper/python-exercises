@@ -56,20 +56,22 @@ num_bal = 0.0
 bal_list = []
 fruit_list = []
 unread_list = []
+name_list = []
 total_unread = 0
-apple_count = 0
-banana_count = 0
-strawberry_count = 0
+# apple_count = 0
+# banana_count = 0
+# strawberry_count = 0
 fruit_dict = {}
+bal_dict = {}
 
-# Print full list of files on handm count total number of users:
+# Print full list of files on hand count total number of users:
 
 for dict in full_load:
     for key in dict:
         # this will print out all the records if you want that
-        # print('{}: {}'.format(key, dict[key]))
-        # if key == 'favoriteFruit':
-        #     print('-------------------')
+        print('{}: {}'.format(key, dict[key]))
+        if key == 'favoriteFruit':
+            print('-------------------')
         if key == 'isActive':
             count_total += 1
 
@@ -118,16 +120,27 @@ for dict in full_load:
                                                  '').replace(',', '').strip())
             bal_list.append(float(dict[key].replace(
                 '$', '').replace(',', '').strip()))
+        if key == 'name':
+            name_list.append(dict[key])
+
+for item in name_list:
+    bal_dict[item] = bal_list[name_list.index(item)]
+print(bal_dict)
 
 print('Total balances: ${}'.format(total_bal))
 
-average_bal = total_bal / num_bal
-max_balance = max(bal_list)
+average_bal = sum(bal_list) / num_bal
 min_balance = min(bal_list)
-
+max_balance = max(bal_list)
 print('Average balance: ${0:.6}'.format(average_bal))
+for key in bal_dict:
+    if bal_dict[key] == max_balance:
+        print('The maximum balance holder is {} with a balance of ${}'.format(key, bal_dict[key]))
+    if bal_dict[key] == min_balance:
+        print('The minimum balance holder is {} with a balance of ${}'.format(key, bal_dict[key]))
 print('Maximum balance: ${}'.format(max_balance))
 print('Minimum balance: ${}'.format(min_balance))
+
 
 # actual functional way of finding favorite fruits
 for key, group in groupby(sorted(fruit_list)):
@@ -145,10 +158,12 @@ for key, group in groupby(sorted(fruit_list)):
 # fruit_dict = {'apple': apple_count,
 #               'banana': banana_count, 'strawberry': strawberry_count}
 
-print('The most popular favorite fruit is {}'.format(max(fruit_dict)))
+print('The most popular favorite fruit is {}'.format(max(fruit_dict.keys())))
 print('The number of people with {} as their favorite fruit is {}'.format(
-    max(fruit_dict), fruit_dict[max(fruit_dict)]))
+    max(fruit_dict), fruit_dict[max(fruit_dict.keys())]))
 
+print('The number of people with {} as their favorite fruit is {}'.format(
+    min(fruit_dict.keys()), fruit_dict[min(fruit_dict.keys())]))
 unread_total = sum(unread_list)
-
+print(fruit_dict)
 print('total unread emails: {}'.format(unread_total))
