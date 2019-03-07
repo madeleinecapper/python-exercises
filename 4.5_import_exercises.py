@@ -6,12 +6,18 @@ from functions_exercises import is_two
 from functions_exercises import is_vowel as vowl
 from functions_exercises import handle_commas
 
+# trying out a couple different functions from
+# the imported functions_exercises using full import,
+# alias, function only
+
 print(functions_exercises.is_consonant('B'))
 
 print(is_two(2))
 
 print(vowl('r'))
 
+# itertools exercises 
+# combine abc with 123 in pairs
 
 toup1 = ('a', 'b', 'c')
 toup2 = ('1', '2', '3')
@@ -25,6 +31,7 @@ print('If we combine {} and {}, we get {} combinations'.format(toup1, toup2, amo
 print('It looks like this: ')
 print('{}'.format(comb_string))
 
+#combine abcd in pairs
 
 comb_list2 = list(combo('abcd', 2))
 comb_string2 = ''
@@ -32,9 +39,12 @@ amount2 = 0
 for n in comb_list2:
     comb_string2 += str(n)
     amount2 += 1
+
 print('If we combine a,b,c,d in pairs, we get {} combinations'.format(amount2))
 print('It looks like this: ')
 print('{}'.format(comb_string2))
+
+# heres a whole bunch of initializations 
 
 full_load = json.load(open('profiles.json'))
 count_total = 0
@@ -54,11 +64,14 @@ strawberry_count = 0
 
 for dict in full_load:
     for key in dict:
-        print('{}: {}'.format(key, dict[key]))
-        if key == 'favoriteFruit':
-            print('-------------------')
+        # this will print out all the records if you want that
+        # print('{}: {}'.format(key, dict[key]))
+        # if key == 'favoriteFruit':
+        #     print('-------------------')
         if key == 'isActive':
             count_total += 1
+
+print('\nHi! Here''s some analysis on this json file!\n')
 
 print('Number of all users: {}'.format(count_total))
 
@@ -81,6 +94,9 @@ for dict in full_load:
 print('Number of inactive users: {}'.format(count_inactive))
 
 # Grand total of balances
+# also unread emails from greeting message
+# also favorite fruit list builder
+#also balance list builder
 
 for dict in full_load:
     for key in dict:
@@ -100,13 +116,17 @@ for dict in full_load:
                                                  '').replace(',', '').strip())
             bal_list.append(float(dict[key].replace(
                 '$', '').replace(',', '').strip()))
+
 print('Total balances: ${}'.format(total_bal))
+
 average_bal = total_bal / num_bal
 max_balance = max(bal_list)
 min_balance = min(bal_list)
+
 print('Average balance: ${0:.6}'.format(average_bal))
 print('Maximum balance: ${}'.format(max_balance))
 print('Minimum balance: ${}'.format(min_balance))
+
 for fruit in fruit_list:
     if fruit == 'apple':
         apple_count += 1
@@ -114,10 +134,14 @@ for fruit in fruit_list:
         strawberry_count += 1
     elif fruit == 'banana':
         banana_count += 1
+
 fruit_dict = {'apple': apple_count,
               'banana': banana_count, 'strawberry': strawberry_count}
+
 print('The most popular favorite fruit is {}'.format(max(fruit_dict)))
 print('The number of people with {} as their favorite fruit is {}'.format(
     max(fruit_dict), fruit_dict[max(fruit_dict)]))
+
 unread_total = sum(unread_list)
+
 print('total unread emails: {}'.format(unread_total))
