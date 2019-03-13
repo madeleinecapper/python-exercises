@@ -18,6 +18,13 @@ students = pd.DataFrame({'name': students,
                         'favorite_number': favorite_number
                         })
 
+# ~~Walkthrough: 
+# df = pd.DataFrame(dict(name=students,
+#                       student_no=student_number, 
+#                       shoe_sizes=shoe_sizes, 
+#                       side=side_of_classroom,
+#                       favorite_number = favorite_number))
+
 # 3: Print out the shape of the data frame
 print('Shape of Students: ')
 print(students.shape)
@@ -42,6 +49,10 @@ print()
 shoe_side = pd.DataFrame({'shoe size': students.shoe_sizes, 
                             'side_of_classroom': students.side_of_classroom
                         })
+
+# ~~Walkthrough:
+# students[['side_of_classroom', 'shoe_sizes']]
+
 print('Let\'s see a new dataframe with only shoe size and side of class: ')
 print(shoe_side)
 print()
@@ -52,12 +63,18 @@ df_5_rows = students.iloc[0:5]
 print('DataFrame with only the first five rows: ')
 print(df_5_rows)
 print()
+# OR: students.head()
 
 # 8: Create a new data frame that has only columns for 
 # only favorite number and name, and only includes 7 rows.
 sub_frame = students.loc[0:6,['name','favorite_num']]
 print(sub_frame)
 print()
+
+# ~~Walkthrough:
+# students[['favorite_num','student_name']].head(7)
+# OR:
+# students.sample(7)[['favorite_num', 'student_name']]
 
 # 9: Create a new column for the ratio of shoe size to favorite number.
 #  Name this ss_to_fn
@@ -72,6 +89,10 @@ def z_score(shoe):
     z = (shoe - students.shoe_sizes.mean()) / students.shoe_sizes.std()
     return z
 students['shoe_z_score'] = students.shoe_sizes.apply(z_score)
+
+# ~~Walkthrough method:
+# students['shoe_z_score'] = (shoe - students.shoe_sizes.mean()) / students.shoe_sizes.std()
+
 print(students)
 print()
 # 11: Transform the side_of_the_classroomn columns such that the valiues
@@ -83,6 +104,10 @@ def r_or_l(some_string):
         return 'L'
 
 students['side_of_classroom'] = students.side_of_classroom.apply(r_or_l)
+
+# ~~Walkthrough example:
+#students.side.str[0].str.upper()
+
 print(students)
 print()
 
@@ -100,7 +125,7 @@ print(big_feet_students)
 print()
 # 13:Find the names of all the students that have a shoe size less than the 
  # 1st quartile of shoe sizes
- 
+
 small_feet_students = students[students.shoe_sizes <= students.shoe_sizes.quantile(0.25)]
 print(small_feet_students)
 print()
