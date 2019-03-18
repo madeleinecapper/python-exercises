@@ -102,7 +102,7 @@ grouped_specs = df.groupby('specials').count().apply(lambda x: 100* x /float(x.s
 print(grouped_specs['weight'])
 
 # How many animals are hoppers that are above the median speed? What percentage is this?
-df['above_med'] = df.speed > df.speed.agg(np.mean)
+df['above_med'] = df.speed > df.speed.agg(np.quantile(0.5))
 num_fast_hops = df.groupby('above_med')[['hoppers']].count()
 perc_fast_hops = df.groupby('above_med')[['hoppers']].count().apply(lambda x: 100* x /float(x.sum()))
 print(num_fast_hops)
